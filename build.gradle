@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group = 'org.ren1kron'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+//    implementation 'org.postgresql:postgresql:42.7.4'
+
+    // Jakarta EE API (предоставляется сервером приложений, scope provided)
+    compileOnly 'jakarta.platform:jakarta.jakartaee-web-api:9.0.0'
+
+    // Lombok для генерации кода
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+war {
+    archiveFileName = 'web_lab4.war'
+    webAppDirectory = file('src/main/webapp')
+
+
+    // Исключаем драйвер PostgreSQL, так как он предоставляется TomEE через tomee.xml
+    exclude 'WEB-INF/lib/postgresql-*.jar'
+
+    // Исключаем Hibernate, если используем встроенный
+    // exclude 'WEB-INF/lib/hibernate-core-*.jar'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
