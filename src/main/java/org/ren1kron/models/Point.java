@@ -30,34 +30,7 @@ public class Point implements Serializable {
 
     private boolean hit;
 
-//    public boolean calculate() {
-//        // TODO update calculate to new form
-//        this.hitTime = new Date();
-//        // 1st quarter (circle)
-//        if (x > 0 && y > 0
-//                && x * x + y * y <= r * r) {
-//            return true;
-//        }
-//        // 3rd quarter (triangle)
-//        if (x < 0 && y < 0
-//                && y >= -x - r) {
-//            return true;
-//        }
-//        // 4th quarter (circle)
-//        if (x < 0 && y > 0
-//                && x <= r && y >= -r/2) {
-//            return true;
-//        }
-//        // critical points
-//        if (x == 0 && y >= -r && y <= r) {
-//            return true;
-//        }
-//        if (y == 0 && x >= -r && x <= r) {
-//            return true;
-//        }
-//
-//        return false;
-//    }
+
     public void calculate() {
         // TODO update calculate to new form
         this.hitTime = new Date();
