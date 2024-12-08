@@ -1,3 +1,4 @@
+// org.ren1kron.util.JwtUtil.java
 package org.ren1kron.util;
 
 import io.jsonwebtoken.*;
@@ -7,6 +8,7 @@ import java.security.Key;
 import java.util.Date;
 
 public class JwtUtil {
+    // Secret key should be at least 256 bits for HS256
     private static final String SECRET_KEY = "3f21b7d4a9c64e3e9c1b8f7123d4a67e4a55b9f48c7d1e8eaf214e9f8c5b3a4f";
     private static final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
 

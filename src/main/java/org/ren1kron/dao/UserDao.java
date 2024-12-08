@@ -3,6 +3,7 @@ package org.ren1kron.dao;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.ren1kron.models.User;
 
 @ApplicationScoped
@@ -16,5 +17,10 @@ public class UserDao {
                 .getResultStream()
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Transactional
+    public void saveUser(User user) {
+        em.persist(user);
     }
 }
