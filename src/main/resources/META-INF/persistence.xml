@@ -10,6 +10,7 @@
 
         <!-- Укажите классы ваших сущностей -->
         <class>org.ren1kron.models.Point</class>
+        <class>org.ren1kron.models.User</class>
 
         <properties>
             <!-- Провайдер JPA (Hibernate уже встроен в TomEE) -->
