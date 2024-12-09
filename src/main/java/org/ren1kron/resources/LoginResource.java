@@ -36,14 +36,14 @@ public class LoginResource {
         User user = userDao.findByUsername(request.getUsername());
         if (user == null) {
             return Response.status(Response.Status.UNAUTHORIZED)
-                    .entity("Invalid credentials")
+                    .entity("Invalid credentials, user is null")
                     .build();
         }
 
         // Verify the password using BCrypt
         if (!BCrypt.checkpw(request.getPassword(), user.getPasswordHash())) {
             return Response.status(Response.Status.UNAUTHORIZED)
-                    .entity("Invalid credentials")
+                    .entity("Invalid credentials, password was not verified")
                     .build();
         }
 

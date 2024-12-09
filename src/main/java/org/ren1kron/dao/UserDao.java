@@ -11,6 +11,7 @@ public class UserDao {
     @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
+    @Transactional
     public User findByUsername(String username) {
         return em.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
                 .setParameter("username", username)

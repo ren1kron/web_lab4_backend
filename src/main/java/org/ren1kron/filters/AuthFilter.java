@@ -7,10 +7,12 @@ import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
+import lombok.extern.slf4j.Slf4j;
 import org.ren1kron.util.JwtUtil;
 
 import java.io.IOException;
 
+@Slf4j
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class AuthFilter implements ContainerRequestFilter {
@@ -35,12 +37,15 @@ public class AuthFilter implements ContainerRequestFilter {
         }
 
         String token = authHeader.substring("Bearer ".length());
+        log.info("AuthFilter: Validating token: {}", token);
 
         try {
             // Validate the token
             JwtUtil.validateToken(token);
+            log.info("AuthFilter: Token is valid");
             // Optionally, we can extract user information and set it in the security context
         } catch (JwtException e) {
+            log.error("AuthFilter: Token validation is failed: {}", e.getMessage());
             requestContext.abortWith(
                     Response.status(Response.Status.UNAUTHORIZED)
                             .entity("Invalid or expired token")

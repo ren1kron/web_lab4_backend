@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import lombok.NoArgsConstructor;
 import org.ren1kron.models.Point;
+import org.ren1kron.models.User;
 
 import java.util.List;
 
@@ -22,13 +23,16 @@ public class PointDao {
         entityManager.persist(point);
     }
 
-    public List<Point> getPoints() {
-        return entityManager.createQuery("SELECT p FROM Point p", Point.class).getResultList();
+    public List<Point> getPointsByUser(User user) {
+        return entityManager.createQuery("SELECT p FROM Point p where p.user = :user", Point.class)
+                .setParameter("user", user)
+                .getResultList();
     }
 
     @Transactional
-    public int clear() {
-        int deletedCount = entityManager.createQuery("DELETE FROM Point p").executeUpdate();
-        return deletedCount;
+    public int clearUserPoints(User user) {
+        return entityManager.createQuery("DELETE FROM Point p where p.user = :user")
+                .setParameter("user", user)
+                .executeUpdate();
     }
 }

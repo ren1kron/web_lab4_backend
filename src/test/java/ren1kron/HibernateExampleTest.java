@@ -93,8 +93,8 @@ public class HibernateExampleTest {
 //        pointDao.addPoint(point);
 //    }
 //    @Test
-//    public void clear() {
-//        pointDao.clear();
+//    public void clearUserPoints() {
+//        pointDao.clearUserPoints();
 //    }
 
 }
