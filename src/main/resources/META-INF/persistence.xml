@@ -5,15 +5,12 @@
                                  https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="primary" transaction-type="JTA">
-        <!-- Укажите имя DataSource, настроенного в tomee.xml -->
         <jta-data-source>PostgresDS</jta-data-source>
 
-        <!-- Укажите классы ваших сущностей -->
         <class>org.ren1kron.models.Point</class>
         <class>org.ren1kron.models.User</class>
 
         <properties>
-            <!-- Провайдер JPA (Hibernate уже встроен в TomEE) -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>

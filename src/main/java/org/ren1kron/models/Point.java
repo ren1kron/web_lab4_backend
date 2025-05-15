@@ -67,17 +67,5 @@ public class Point implements Serializable {
 
         this.hit = false;
     }
-//    public void calculate() {
-//        this.hitTime = new Date();
-//        if ((x > 0 && y > 0 && x * x + y * y <= r * r) ||
-//                (x < 0 && y < 0 && y >= -x - r) ||
-//                (x > 0 && y < 0 && x <= r && y >= -r / 2) ||
-//                (x == 0 && y >= -r && y <= r) ||
-//                (y == 0 && x >= -r && x <= r)) {
-//            this.hit = true;
-//        } else {
-//            this.hit = false;
-//        }
-//    }
 
 }

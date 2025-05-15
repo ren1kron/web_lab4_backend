@@ -7,7 +7,6 @@ import jakarta.ws.rs.core.Application;
 public class JaxrsActivator extends Application {
 }
 // TODO I need to:
-//  - add wiring points to user
 //  - add desktop/tablet/phone accessibility
 //  main part is done :)
 //  optional:
