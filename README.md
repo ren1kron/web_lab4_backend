@@ -16,6 +16,13 @@
 </p>
 
 <p align="center">
+  🔗 <strong>Репозиторий frontend-части:</strong>  
+  <a href="https://github.com/ren1kron/web_lab4">
+    https://github.com/ren1kron/web_lab4
+  </a>
+</p>
+
+<p align="center">
   <!-- Backend -->
   <img alt="Java 17"  src="https://img.shields.io/badge/Java-17-006699?style=for-the-badge&logo=openjdk">
   <img alt="Jakarta EE 9" src="https://img.shields.io/badge/Jakarta EE-9.0-f09300?style=for-the-badge">
